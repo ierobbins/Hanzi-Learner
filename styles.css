@@ -1,0 +1,9 @@
+.left-menu-wrapper{
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  min-width: 300px;
+  height: 100%;
+}
+.menu-item{
+  margin-top: 150px;
+}

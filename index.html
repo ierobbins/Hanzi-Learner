@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="hanziLearner">
+  <head>
+    <meta charset="utf-8">
+    <title>Hanzi Learner</title>
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">HANZI LEARNER 汉子学生</a>
+        </div>
+        <ul class="nav navbar-nav" style="font-family: Hiragino Sans GB;">
+          <li class="active"><a href="#">家</a></li>
+          <li><a href="#">小考</a></li>
+          <li><a href="#">汉子</a></li>
+          <li><a href="#">资料</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2 left-menu-wrapper">
+          <ul class="menu-list">
+            <div class="menu-item"><a ui-sref=""><h1>HOME</h1></a></div>
+            <div class="menu-item"><a ui-sref=""><h1>QUIZ</h1></a></div>
+            <div class="menu-item"><a ui-sref=""><h1>HANZI</h1></a></div>
+            <div class="menu-item"><a ui-sref=""><h1>PROFILE</h1></a></div>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+    <script src="./components/home/homeCtrl.js" charset="utf-8"></script>
+    <script src="./components/profile/profileCtrl.js" charset="utf-8"></script>
+    <script src="./components/quiz/quizCtrl.js" charset="utf-8"></script>
+    <script src="./components/hanzi/hanziCtrl.js" charset="utf-8"></script>
+    <script src="./components/mainService.js" charset="utf-8"></script>
+  </body>
+</html>

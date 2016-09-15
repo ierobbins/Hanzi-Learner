@@ -25,8 +25,8 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-2 left-menu-wrapper">
+        <div class="col-md-1 col-sm-1"></div>
+        <div class="col-md-2 col-sm-2 left-menu-wrapper">
           <ul class="menu-list">
             <div class="menu-item"><a ui-sref="home"><h1>HOME</h1></a></div>
             <div class="menu-item"><a ui-sref="quiz"><h1>QUIZ</h1></a></div>
@@ -34,11 +34,11 @@
             <div class="menu-item"><a ui-sref="profile"><h1>PROFILE</h1></a></div>
           </ul>
         </div>
+
+        <div class="col-md-9">
+          <ui-view></ui-view>
+        </div>
       </div>
-
-      <ui-view></ui-view>
-
-
     </div>
 
 
@@ -54,6 +54,7 @@
     <script src="components/quiz/quizCtrl.js" charset="utf-8"></script>
     <script src="components/hanzi/hanziCtrl.js" charset="utf-8"></script>
     <script src="components/mainService.js" charset="utf-8"></script>
-    <script src="morechinese.js" charset="utf-8"></script>
+    <!-- <script src="newfile.js" charset="utf-8"></script>
+    <script src="charCrunch.js" charset="utf-8"></script> -->
   </body>
 </html>

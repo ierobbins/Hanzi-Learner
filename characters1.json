@@ -33,136 +33,137 @@
 }，
 {
   "character":"系","definition":"system; line, link, connection","pinyin":["xì"],"decomposition":"⿱丿糸","etymology":{"type":"pictophonetic","semantic":"糸","hint":"thread"},"radical":"糸","matches":[[0],[1],[1],[1],[1],[1],[1]]
-}
+}，
 {
   "character":"北","definition":"north; northern; northward","pinyin":["běi"],"decomposition":"⿰？匕","etymology":{"type":"pictographic","hint":"Two people 匕 sitting back-to-back; phonetic loan for \"north\""},"radical":"匕","matches":[null,null,null,[1],[1]]
 }，
 {
   "character":"七","definition":"seven","pinyin":["qī"],"decomposition":"⿻一乚","radical":"一","matches":[[0],[1]]
-}
+}，
 {
   "character":"三","definition":"three","pinyin":["sān"],"decomposition":"⿱一二","etymology":{"type":"ideographic","hint":"Three  parallel lines; compare 一 (one) and 二 (two)"},"radical":"一","matches":[[0],[1],[1]]
 }，
 {
   "character":"上","definition":"above, on top, superior; to go up; to attend; previous","pinyin":["shàng"],"decomposition":"⿱⺊一","etymology":{"type":"ideographic","hint":"One stroke on top of another; compare 下 (below)"},"radical":"一","matches":[[0],[0],[1]]
-}
+}，
 {
   "character":"下","definition":"below, underneath; inferior; to bring down; next","pinyin":["xià"],"decomposition":"⿱一卜","etymology":{"type":"ideographic","hint":"One stroke under another; compare 上 (above)"},"radical":"一","matches":[[0],[1],[1]]
 }，
 {
-  
-}
+  "character":"不","definition":"no, not, un-; negative prefix","pinyin":["bù"],"decomposition":"⿱一？","etymology":{"type":"ideographic","hint":"A bird flying toward the sky 一"},"radical":"一","matches":[[0],null,null,null]
+}，
+{
+  "character":"东","definition":"east, eastern, eastward","pinyin":["dōng"],"decomposition":"⿻七小","etymology":{"type":"pictographic","hint":"Simplified form of 東, the sun 日 rising behind a tree 木"},"radical":"一","matches":[[0],[0],[1],[1],[1]]
+}，
+{
+  "character":"子","definition":"son, child; seed, egg; fruit; small thing","pinyin":["zi"],"decomposition":"⿻了一","etymology":{"type":"pictographic","hint":"A child in a wrap, with outstretched arms but bundled legs"},"radical":"子","matches":[[0],[0],[1]]
+
+}，
+{
+  "character":"医","definition":"to cure, to heal, to treat; doctor; medicine","pinyin":["yī"],"decomposition":"⿷匸矢","etymology":{"type":"pictophonetic","phonetic":"匸","semantic":"矢","hint":"arrow"},"radical":"匸","matches":[[0],[1],[1],[1],[1],[1],[0]]
+}，
+{
+  "character":"字","definition":"character, letter, symbol, word","pinyin":["zì"],"decomposition":"⿱宀子","etymology":{"type":"ideographic","hint":"A child 子 in a house 宀; 子 also provides the pronunciation"},"radical":"子","matches":[[0],[0],[0],[1],[1],[1]]
+}，
+{
+  "character":"个","definition":"this, that; single; measure word for individuals","pinyin":["gè"],"decomposition":"⿱人丨","etymology":{"type":"ideographic","hint":"A tally 丨 of people 人"},"radical":"丨","matches":[[0],[0],[1]]
+}，
+{
+  "character":"十","definition":"ten, tenth; complete; perfect","pinyin":["shí"],"decomposition":"⿻一丨","radical":"十","matches":[[0],[1]]
+}，
+{
+  "character":"中","definition":"central; center, middle; amidst; to hit (target), to attain; China; Chinese","pinyin":["zhōng"],"decomposition":"⿻口丨","etymology":{"type":"ideographic","hint":"A line 丨 through the center of a box 口"},"radical":"丨","matches":[[0],[0],[0],[1]]
+}，
+{
+  "character":"午","definition":"noon; 7th terrestrial branch","pinyin":["wǔ"],"decomposition":"⿻丿干","radical":"十","matches":[[0],[1],[1],[1]]
+}，
+{
+  "character":"气","definition":"air, gas; steam, vapor; anger","pinyin":["qì"],"decomposition":"⿱亻？","etymology":{"type":"ideographic","hint":"A person 亻 breathing air"},"radical":"气","matches":[[0],[0],null,null]
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
+}，
 {
 
 }，
 {
 
-}
-{
-
 }，
 {
 
-}
-{
-
 }，
-{
-
-}
-{
-
-}，
-{
-
-}
-{
-
-}，
-{
-
-}
-{
-
-}，
-{
-
-}

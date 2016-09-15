@@ -1,9 +1,16 @@
 .left-menu-wrapper{
   border-left: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
-  min-width: 300px;
+  min-width: 250px;
   height: 100%;
 }
 .menu-item{
   margin-top: 150px;
+}
+.quiz-box{
+  width: 1000px;
+  height: 700px;
+  border: 1px solid black;
+  margin-left: 100px;
+  margin-top: 20px;
 }

@@ -1,1 +1,11 @@
-{{test}}
+<h1>{{test}}</h1>
+
+
+<div class="new-quiz-wrapper" ng-show="quizToggle">
+  <button type="button" name="button" class="btn btn-success" ng-click="toggleQuiz()">New Quiz</button>
+  <button type="button" name="button" class="btn btn-danger" ng-click="toggleQuiz()">Review</button>
+</div>
+
+<div class="quiz-box" ng-hide="quizToggle">
+  <button type="button" name="button" class="btn btn-warning" ng-click="toggleQuiz()">TEMPORARY</button>
+</div>

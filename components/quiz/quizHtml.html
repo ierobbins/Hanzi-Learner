@@ -2,7 +2,10 @@
 
 
 <div class="new-quiz-wrapper" ng-show="quizToggle">
-  <button type="button" name="button" class="btn btn-success" ng-click="toggleQuiz()">New Quiz</button>
+  <button type="button" name="button" class="btn btn-success" ng-click="toggleQuiz()" ng-click="makeNewQuiz(levelValue)">New Quiz</button>
+  <select class="level-selector" name="" ng-model="levelValue">
+    <option ng-repeat="level in quizLevel">{{level}}</option>
+  </select>
   <button type="button" name="button" class="btn btn-danger" ng-click="toggleQuiz()">Review</button>
 </div>
 

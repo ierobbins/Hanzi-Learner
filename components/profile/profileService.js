@@ -1,7 +1,6 @@
 angular.module("hanziLearner")
   .service("profileSrv", function(){
 
-
     var users = [
       {
         userName: "GinPickle",
@@ -12,7 +11,7 @@ angular.module("hanziLearner")
       }
     ];
 
-    this.listUsers = function(){
+    this.getUsers = function(){
       return users;
     }
 

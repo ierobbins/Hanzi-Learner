@@ -1,9 +1,9 @@
 angular.module("hanziLearner")
-  .controller("quizCtrl", function($scope, quizSrv){
+  .controller("quizCtrl", function($scope, quizSrv, profileSrv){
 
     $scope.test = "QUIZ";
 
-    $scope.quizLevel = ["LEVEL ONE", "LEVEL TWO", "LEVEL THREE", "LEVEL FOUR", "LEVEL FIVE", "LEVEL SIX"];
+    $scope.quizLevel = [{"level": 1}, {"level": 2}, {"level": 3}, {"level": 4}, {"level": 5}, {"level": 6}];
 
     $scope.quizToggle = true;
 
@@ -12,7 +12,7 @@ angular.module("hanziLearner")
     }
 
     $scope.makeNewQuiz = function(initLevel){
-      $scope.newQuiz = quizSrv.createNewText(initLevel);
+      $scope.newQuiz = quizSrv.createNewTest(profileSrv.getUsers()[0], initLevel);
     }
 
   });

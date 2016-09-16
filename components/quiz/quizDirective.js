@@ -4,7 +4,12 @@ angular.module("hanziLearner")
       restrict: "E",
       templateUrl: "./components/quiz/quizDir.html",
       scope:{
-        question: "="
+        question: "=",
+        randPin: "=",
+        randDef:"=",
+        checkPinState: "&",
+        checkDefState: "&",
+        checkCorrectState: "&",
       },
       link: function(scope, element, attrs){
 

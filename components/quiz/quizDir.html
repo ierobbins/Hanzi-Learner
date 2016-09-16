@@ -1,6 +1,40 @@
-<div class="quiz-char-block"><h1>{{question.character}}</h1></div>
-          <div class="quiz-multiple-choice">
-            <ul>
-              <li ng-repeat="choice in choices"></li>
-            </ul>
-          </div>
+<div class="quiz-char-block">
+  <h1 style="font-size: 180px;">{{question.character}}</h1>
+</div>
+
+
+<!-- repeats over the sound multiple choice options, shows only when in state 0 -->
+<div class="quiz-multiple-choice" ng-show="checkPinState()">
+  <ul class="multiple-choice-questions">
+    <li ng-repeat="pinyin in randPin">{{pinyin}}</li>
+  </ul>
+</div>
+
+<!-- repeats over the definition multiple choice options, shows only when in state 1 -->
+<div class="quiz-multiple-choice" ng-show="checkDefState()">
+  <ul class="multiple-choice-questions">
+    <li ng-repeat="definition in randDef">{{definition}}</li>
+  </ul>
+</div>
+
+<!-- display total character info, shows only when in state 2 or 3 -->
+<div class="correct-answer" ng-show="checkCorrectState">
+  <h2>CORRECT!</h2>
+  <div class="definition-display">
+    <!-- character.definition -->
+  </div>
+  <div class="pinyin-display">
+    <!-- character.pinyin -->
+  </div>
+  <div class="decomposition-display">
+    <!-- character.decomposition -->
+  </div>
+  <div class="frequency-display">
+    <!-- character.frequencyRank -->
+  </div>
+</div>
+
+<div class="hint-button">
+  <button type="button" name="button" class="btn btn-warning">HINT</button>
+  <!-- display current character.etymology.hint -->
+</div>

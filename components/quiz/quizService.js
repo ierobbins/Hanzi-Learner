@@ -5,10 +5,6 @@ angular.module("hanziLearner")
 
     var currentQuiz = [];
 
-    this.getCurrentQuiz = function(){
-      return currentQuiz;
-    }
-
     this.quizTracker = function(currQuiz){
       currQuiz.forEach(function(item, index){
         if(item.correct >= 2){
@@ -122,24 +118,24 @@ angular.module("hanziLearner")
       var soundArr = [initChar.pinyin];
       var rand = 0;
       while(soundArr.length < 4){
-        rand = Math.ceil(Math.random() * characters.length);
-        if(soundArr.indexOf(characters[rand].pinyin) === -1){
-          soundArr.push(characters[rand].pinyin);
+        rand = Math.ceil(Math.random() * this.characters.length);
+        if(soundArr.indexOf(this.characters[rand].pinyin) === -1){
+          soundArr.push(this.characters[rand].pinyin);
         }
       }
       return soundArr;
     }
 
-    this.genRandMeaning = function(initChar){
-      var soundArr = [initChar.pinyin];
+    this.genRandDef = function(initChar){
+      var defArr = [initChar.definition];
       var rand = 0;
-      while(soundArr.length < 4){
-        rand = Math.ceil(Math.random() * characters.length);
-        if(soundArr.indexOf(characters[rand].pinyin) === -1){
-          soundArr.push(characters[rand].pinyin);
+      while(defArr.length < 4){
+        rand = Math.ceil(Math.random() * this.characters.length);
+        if(defArr.indexOf(this.characters[rand].definition) === -1){
+          defArr.push(this.characters[rand].definition);
         }
       }
-      return soundArr;
+      return defArr;
     }
 
 

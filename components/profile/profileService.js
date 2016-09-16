@@ -11,6 +11,12 @@ angular.module("hanziLearner")
       }
     ];
 
+    var currentUser = users[0];
+
+    this.getCurrentUser = function(){
+      return currentUser;
+    }
+
     this.getUsers = function(){
       return users;
     }
@@ -45,7 +51,7 @@ angular.module("hanziLearner")
         email: initEmail,
         password: initPass,
         mastered: [],
-        learned: []
+        learning: []
       });
     }
 

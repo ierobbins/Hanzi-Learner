@@ -40,7 +40,7 @@ angular.module("hanziLearner")
           answerProg = 3
         }
       }
-    } 
+    }
 
 
 
@@ -66,21 +66,24 @@ angular.module("hanziLearner")
           }
         }
         $scope.tempQuiz = quizSrv.quizTracker($scope.tempQuiz);
-        if($scope.qIndex >= $scope.tempQuiz.length - 1){
-          $scope.qIndex = 0;
-
-        } else {
-          $scope.qIndex++
+        if($scope.tempQuiz.length === 0){
+          answerProg = 4;
         }
-        $scope.question = $scope.tempQuiz[$scope.qIndex];
-        $scope.randPin = quizSrv.genRandPinyin($scope.question);
-        $scope.randDef = quizSrv.genRandDef($scope.question);
+        else{
 
-        answerProg = 0;
-        console.log($scope.question);
-        console.log("bottom: ", $scope.qIndex);
-      } else {
-        answerProg = 4;
+          if($scope.qIndex >= $scope.tempQuiz.length - 1){
+            $scope.qIndex = 0;
+          } else {
+            $scope.qIndex++
+          }
+          $scope.question = $scope.tempQuiz[$scope.qIndex];
+          $scope.randPin = quizSrv.genRandPinyin($scope.question);
+          $scope.randDef = quizSrv.genRandDef($scope.question);
+
+          answerProg = 0;
+          console.log($scope.question);
+          console.log("bottom: ", $scope.qIndex);
+        }
       }
     }
 

@@ -16,5 +16,9 @@
 
 <div class="quiz-box" ng-hide="quizToggle">
   <button type="button" name="button" class="btn btn-warning" ng-click="toggleQuiz()">TEMPORARY</button>
-  {{newQuiz}}
+  <div>
+    <!-- PASS IN ONE QUESTION AT A TIME FROM NEWQUIZ -->
+    <quiz-directive question="question"></quiz-directive>
+  </div>
+  <!-- {{newQuiz}} -->
 </div>

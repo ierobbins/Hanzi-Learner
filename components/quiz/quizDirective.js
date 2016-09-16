@@ -1,14 +1,11 @@
 angular.module("hanziLearner")
-  .directive("quizDirective", function(quizService){
+  .directive("quizDirective", function(){
     return{
       restrict: "E",
-      template: '<div class="quiz-char-block"><h1>{{time}}</h1></div>' +
-                '<div class="quiz-multiple-choice">' +
-                  '<ul>' +
-                    '<li ng-repeat="choice in choices"></li>' +
-                  '</ul>' +
-                '</div>'
-      ,
+      templateUrl: "./components/quiz/quizDir.html",
+      scope:{
+        question: "="
+      },
       link: function(scope, element, attrs){
 
       }

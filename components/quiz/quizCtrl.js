@@ -11,8 +11,25 @@ angular.module("hanziLearner")
       this.quizToggle = !this.quizToggle;
     }
 
+    $scope.passNewChar = function(){
+      if($scope.tempQuiz.length > 0){
+        $scope.tempQuiz = quizSrv.quizTracker($scope.tempQuiz);
+        if($scope.qIndex >= $scope.tempQuiz.length){
+          $scope.qIndex = 0;
+        } else {
+          $scope.qIndex++
+        }
+        return $scope.question = $scope.tempQuiz[$scope.qIndex];
+      }
+      //TODO end the quiz somehow.......
+      return null;
+    }
+
     $scope.makeNewQuiz = function(initLevel){
       $scope.newQuiz = quizSrv.createNewTest(profileSrv.getUsers()[0], initLevel);
+      $scope.tempQuiz = $scope.newQuiz;
+      $scope.question = $scope.tempQuiz[0];
+      $scope.qIndex = 0;
     }
 
   });

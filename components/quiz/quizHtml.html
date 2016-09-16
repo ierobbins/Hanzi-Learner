@@ -1,7 +1,7 @@
 <h1>{{test}}</h1>
 
 
-<div class="new-quiz-wrapper" ng-show="quizToggle">
+<div class="new-quiz-wrapper container-fluid" ng-show="quizToggle">
 
   <div ng-click="toggleQuiz()">
     <button id="quiz-button" class="btn btn-success" ng-click="makeNewQuiz(levelValue)">New Quiz</button>
@@ -17,18 +17,19 @@
 <div class="quiz-box" ng-hide="quizToggle">
   <button type="button" name="button" class="btn btn-warning" ng-click="toggleQuiz()">TEMPORARY</button>
   <div>
-    <quiz-directive question="question"
-                    rand-pin="randPin"
-                    rand-def="randDef"
-                    check-pin-state="checkPinState()"
-                    check-def-state="checkDefState()"
-                    check-correct-state="checkCorrectState()"
-                    check-incorrect-state="checkIncorrectState()"
-                    check-answer="checkAnswer()"
-
-
-
-
+    <quiz-directive
+        question="question"
+        rand-pin="randPin"
+        rand-def="randDef"
+        check-pin-state="checkPinState()"
+        check-def-state="checkDefState()"
+        check-correct-state="checkCorrectState()"
+        check-incorrect-state="checkIncorrectState()"
+        check-answer="checkAnswer(initAnswer)"
+        q-index="qIndex"
+        temp-quiz:"tempQuiz"
+        check-finished-state="checkFinishedState()"
+        pass-new-char="passNewChar()"
     ></quiz-directive>
   </div>
   <!-- {{newQuiz}} -->

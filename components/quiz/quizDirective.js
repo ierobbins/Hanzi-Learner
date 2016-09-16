@@ -7,12 +7,15 @@ angular.module("hanziLearner")
         question: "=",
         randPin: "=",
         randDef:"=",
+        tempQuiz: "=",
+        qIndex: "=",
         checkPinState: "&",
         checkDefState: "&",
         checkCorrectState: "&",
         checkIncorrectState: "&",
         checkAnswer: "&",
-        checkFinishedState: "&"
+        checkFinishedState: "&",
+        passNewChar: "&"
       },
       link: function(scope, element, attrs){
 

@@ -59,11 +59,6 @@ angular.module("hanziLearner")
       }
     }
 
-
-
-
-
-
     //CREATES NEW QUIZ BASED ON USER INFORMATION AND CHOSEN LEVEL
     this.createNewTest = function(initUser, initLevel){
 
@@ -114,13 +109,14 @@ angular.module("hanziLearner")
       return newQuiz;
     }
 
+    //RETURNS AN ARRAY WITH ONE CORRECT ANSWER AND 4 RANDOMLY PULLED PINYIN ANSWERS
     this.genRandPinyin = function(initChar){
       var soundArr = [];
       var correctAnswer = initChar.pinyin[0];
       var rand = 0;
       while(soundArr.length < 4){
         rand = Math.ceil(Math.random() * this.characters.length);
-        if(soundArr.indexOf(this.characters[rand].pinyin) === -1){
+        if(soundArr.indexOf(this.characters[rand].pinyin[0]) === -1 && this.characters[rand].pinyin[0]){
           soundArr.push(this.characters[rand].pinyin[0]);
         }
       }
@@ -129,13 +125,14 @@ angular.module("hanziLearner")
       return soundArr;
     }
 
+    //RETURNS AN ARRAY WITH ONE CORRECT ANSWER AND 4 RANDOMLY PULLED DEFINITION ANSWERS
     this.genRandDef = function(initChar){
       var defArr = [];
       var correctAnswer = initChar.definition;
       var rand = 0;
       while(defArr.length < 4){
         rand = Math.ceil(Math.random() * this.characters.length);
-        if(defArr.indexOf(this.characters[rand].definition) === -1){
+        if(defArr.indexOf(this.characters[rand].definition) === -1 && this.characters[rand].definition){
           defArr.push(this.characters[rand].definition);
         }
       }

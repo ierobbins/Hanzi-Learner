@@ -25,53 +25,63 @@ angular.module("hanziLearner")
     //TRACKS THE ANSWER PROGRESSION. STATE 0 SHOWS PINYIN MULT CHOICE. STATE 1 SHOWS DEF MULT CHOICE. STATE 2 SHOWS CORRECT WHOLE CHAR. STATE 3 SHOWS INCORRECT WHOLE CHAR
     var answerProg = 0;
     $scope.checkAnswer = function(initAnswer){
+
       if(answerProg === 0){
-        if(initAnswer === question.pinyin[0]){
+        if(initAnswer === $scope.question.pinyin[0]){
           answerProg = 1;
         } else {
           answerProg = 3
         }
       }
       else if(answerProg === 1){
-        if(initAnswer === question.definition){
+        if(initAnswer === $scope.question.definition){
           answerProg = 2;
         } else {
           answerProg = 3
         }
       }
-    }
+    } 
+
 
 
     //LOOPS THROUGH CHARS IN TEMPQUIZ. DROPS TEMP-QUIZ ELEMENTS WITH MORE THAN TWO CORRECT.
     $scope.passNewChar = function(){
-      //UPDATES THE CORRECT PROPERTY OF THE QUIZ ELEMENTS
-      if(answerProg === 2){
-        if($scope.tempQuiz[$scope.qIndex].hasOwnProperty(correct)){
-          $scope.tempQuiz[$scope.qIndex].correct++;
-        } else {
-          $scope.tempQuiz[$scope.qIndex].correct = 0;
-        }
-      }
-      if(answerProg === 3){
-        if(!$scope.tempQuiz[$scope.qIndex].hasOwnProperty(correct)){
-          $scope.tempQuiz[$scope.qIndex].correct = 0;
-        }
-      }
-
+      console.log("top: ", $scope.qIndex);
+      console.log("quiz: ", $scope.tempQuiz);
+      console.log(answerProg);
       //TRIMS OUT TEMP-QUIZ ELEMENTS THAT HAVE ALREADY BEEN CHOSEN CORRECTLY TWO TIMES
       if($scope.tempQuiz.length > 0){
+
+        //UPDATES THE CORRECT PROPERTY OF THE QUIZ ELEMENTS
+        if(answerProg === 2){
+          if($scope.tempQuiz[$scope.qIndex].hasOwnProperty("correct")){
+            $scope.tempQuiz[$scope.qIndex].correct++;
+          } else {
+            $scope.tempQuiz[$scope.qIndex].correct = 1;
+          }
+        }
+        if(answerProg === 3){
+          if(!$scope.tempQuiz[$scope.qIndex].hasOwnProperty("correct")){
+            $scope.tempQuiz[$scope.qIndex].correct = 0;
+          }
+        }
         $scope.tempQuiz = quizSrv.quizTracker($scope.tempQuiz);
-        if($scope.qIndex >= $scope.tempQuiz.length){
+        if($scope.qIndex >= $scope.tempQuiz.length - 1){
           $scope.qIndex = 0;
+
         } else {
           $scope.qIndex++
         }
         $scope.question = $scope.tempQuiz[$scope.qIndex];
         $scope.randPin = quizSrv.genRandPinyin($scope.question);
         $scope.randDef = quizSrv.genRandDef($scope.question);
+
+        answerProg = 0;
+        console.log($scope.question);
+        console.log("bottom: ", $scope.qIndex);
+      } else {
+        answerProg = 4;
       }
-      //TODO end the quiz somehow.......
-      answerProg = 4;
     }
 
 

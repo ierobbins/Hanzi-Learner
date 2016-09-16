@@ -1,5 +1,6 @@
 <div class="quiz-char-block">
   <h1 style="font-size: 180px;">{{question.character}}</h1>
+  <span>{{qIndex}} / {{tempQuiz.length}}</span>
 </div>
 
 
@@ -7,14 +8,15 @@
 <div class="quiz-multiple-choice" ng-show="checkPinState()">
   <ul class="multiple-choice-questions">
     <h3>What Sound Does This Character Make?</h3>
-    <div ng-repeat="pinyin in randPin" ng-click="checkAnswer(pinyin)">{{pinyin}}</div>
+    <div ng-repeat="pinyin in randPin" ng-click="checkAnswer({initAnswer: pinyin})">{{pinyin}}</div>
   </ul>
 </div>
 
 <!-- repeats over the definition multiple choice options, shows only when in state 1 -->
 <div class="quiz-multiple-choice" ng-show="checkDefState()">
   <ul class="multiple-choice-questions">
-    <li ng-repeat="definition in randDef" ng-click="checkAnswer(definition)">{{definition}}</li>
+    <h3>What Is The Meaning?</h3>
+    <li ng-repeat="definition in randDef" ng-click="checkAnswer({initAnswer: definition})">{{definition}}</li>
   </ul>
 </div>
 
@@ -22,16 +24,25 @@
 <div class="correct-answer" ng-show="checkCorrectState()">
   <h2>CORRECT!</h2>
   <div class="definition-display">
-    <!-- character.definition -->
+    <h2>Definition: {{question.definition}}</h2>
   </div>
   <div class="pinyin-display">
-    <!-- character.pinyin -->
+    <h3>Pinyin: {{question.pinyin[0]}}<h3>
   </div>
   <div class="decomposition-display">
-    <!-- character.decomposition -->
+    <h3>Radical Composition: {{question.decomposition}}<h3>
   </div>
   <div class="frequency-display">
-    <!-- character.frequencyRank -->
+    <h3>Frequency Rank: {{question.frequencyRank}}<h3>
+  </div>
+  <div class="etymology-display">
+    <h3>Type: {{question.etymology.type}}<h3>
+  </div>
+  <div class="etymology-display">
+    <h3>Etymology: {{question.definition.hint}}<h3>
+  </div>
+  <div class="correct-incorrect-buttons">
+    <button type="button" class="btn btn-warning" ng-click="passNewChar()">Next Character</button>
   </div>
 </div>
 
@@ -39,19 +50,29 @@
 <div class="correct-answer" ng-show="checkIncorrectState()">
   <h2>INCORRECT!</h2>
   <div class="definition-display">
-    <!-- character.definition -->
+    <h2>Definition: {{question.definition}}</h2>
   </div>
   <div class="pinyin-display">
-    <!-- character.pinyin -->
+    <h3>Pinyin: {{question.pinyin[0]}}<h3>
   </div>
   <div class="decomposition-display">
-    <!-- character.decomposition -->
+    <h3>Radical Composition: {{question.decomposition}}<h3>
   </div>
   <div class="frequency-display">
-    <!-- character.frequencyRank -->
+    <h3>Frequency Rank: {{question.frequencyRank}}<h3>
+  </div>
+  <div class="etymology-display">
+    <h3>Type: {{question.etymology.type}}<h3>
+  </div>
+  <div class="etymology-display">
+    <h3>Etymology: {{question.definition.hint}}<h3>
+  </div>
+  <div class="correct-incorrect-buttons">
+    <button type="button" class="btn btn-warning" ng-click="passNewChar()">Next Character</button>
   </div>
 </div>
 
+<!-- display total character info, shows only when in state 4 -->
 <div class="quiz-finished" ng-show="checkFinishedState()">
   <button type="button" class="btn btn-success">NEW QUIZ?</button>
   <button type="button" class="btn btn-warning">REVIEW</button>

@@ -6,19 +6,20 @@
 <!-- repeats over the sound multiple choice options, shows only when in state 0 -->
 <div class="quiz-multiple-choice" ng-show="checkPinState()">
   <ul class="multiple-choice-questions">
-    <li ng-repeat="pinyin in randPin">{{pinyin}}</li>
+    <h3>What Sound Does This Character Make?</h3>
+    <div ng-repeat="pinyin in randPin" ng-click="checkAnswer(pinyin)">{{pinyin}}</div>
   </ul>
 </div>
 
 <!-- repeats over the definition multiple choice options, shows only when in state 1 -->
 <div class="quiz-multiple-choice" ng-show="checkDefState()">
   <ul class="multiple-choice-questions">
-    <li ng-repeat="definition in randDef">{{definition}}</li>
+    <li ng-repeat="definition in randDef" ng-click="checkAnswer(definition)">{{definition}}</li>
   </ul>
 </div>
 
-<!-- display total character info, shows only when in state 2 or 3 -->
-<div class="correct-answer" ng-show="checkCorrectState">
+<!-- display total character info, shows only when in state 2 -->
+<div class="correct-answer" ng-show="checkCorrectState()">
   <h2>CORRECT!</h2>
   <div class="definition-display">
     <!-- character.definition -->
@@ -32,6 +33,28 @@
   <div class="frequency-display">
     <!-- character.frequencyRank -->
   </div>
+</div>
+
+<!-- display total character info, shows only when in state 3 -->
+<div class="correct-answer" ng-show="checkIncorrectState()">
+  <h2>INCORRECT!</h2>
+  <div class="definition-display">
+    <!-- character.definition -->
+  </div>
+  <div class="pinyin-display">
+    <!-- character.pinyin -->
+  </div>
+  <div class="decomposition-display">
+    <!-- character.decomposition -->
+  </div>
+  <div class="frequency-display">
+    <!-- character.frequencyRank -->
+  </div>
+</div>
+
+<div class="quiz-finished" ng-show="checkFinishedState()">
+  <button type="button" class="btn btn-success">NEW QUIZ?</button>
+  <button type="button" class="btn btn-warning">REVIEW</button>
 </div>
 
 <div class="hint-button">

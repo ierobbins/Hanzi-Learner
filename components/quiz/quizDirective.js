@@ -10,6 +10,9 @@ angular.module("hanziLearner")
         checkPinState: "&",
         checkDefState: "&",
         checkCorrectState: "&",
+        checkIncorrectState: "&",
+        checkAnswer: "&",
+        checkFinishedState: "&"
       },
       link: function(scope, element, attrs){
 

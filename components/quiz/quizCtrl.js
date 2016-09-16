@@ -11,6 +11,7 @@ angular.module("hanziLearner")
       this.quizToggle = !this.quizToggle;
     }
 
+    //MAKES NEW QUIZ :P
     $scope.makeNewQuiz = function(initLevel){
       $scope.newQuiz = quizSrv.createNewTest(profileSrv.getUsers()[0], initLevel);
       $scope.tempQuiz = $scope.newQuiz;
@@ -21,9 +22,43 @@ angular.module("hanziLearner")
       answerProg = 0;
     }
 
+    //TRACKS THE ANSWER PROGRESSION. STATE 0 SHOWS PINYIN MULT CHOICE. STATE 1 SHOWS DEF MULT CHOICE. STATE 2 SHOWS CORRECT WHOLE CHAR. STATE 3 SHOWS INCORRECT WHOLE CHAR
+    var answerProg = 0;
+    $scope.checkAnswer = function(initAnswer){
+      if(answerProg === 0){
+        if(initAnswer === question.pinyin[0]){
+          answerProg = 1;
+        } else {
+          answerProg = 3
+        }
+      }
+      else if(answerProg === 1){
+        if(initAnswer === question.definition){
+          answerProg = 2;
+        } else {
+          answerProg = 3
+        }
+      }
+    }
 
-    //LOOPS THROUGH CHARS IN TEMPQUIZ. DROPS TEMPQUIZ ELEMENTS WITH MORE THAN TWO CORRECT.
+
+    //LOOPS THROUGH CHARS IN TEMPQUIZ. DROPS TEMP-QUIZ ELEMENTS WITH MORE THAN TWO CORRECT.
     $scope.passNewChar = function(){
+      //UPDATES THE CORRECT PROPERTY OF THE QUIZ ELEMENTS
+      if(answerProg === 2){
+        if($scope.tempQuiz[$scope.qIndex].hasOwnProperty(correct)){
+          $scope.tempQuiz[$scope.qIndex].correct++;
+        } else {
+          $scope.tempQuiz[$scope.qIndex].correct = 0;
+        }
+      }
+      if(answerProg === 3){
+        if(!$scope.tempQuiz[$scope.qIndex].hasOwnProperty(correct)){
+          $scope.tempQuiz[$scope.qIndex].correct = 0;
+        }
+      }
+
+      //TRIMS OUT TEMP-QUIZ ELEMENTS THAT HAVE ALREADY BEEN CHOSEN CORRECTLY TWO TIMES
       if($scope.tempQuiz.length > 0){
         $scope.tempQuiz = quizSrv.quizTracker($scope.tempQuiz);
         if($scope.qIndex >= $scope.tempQuiz.length){
@@ -39,25 +74,8 @@ angular.module("hanziLearner")
       answerProg = 4;
     }
 
-    //TRACKS THE ANSWER PROGRESSION. STATE 0 SHOWS PINYIN MULT CHOICE. STATE 1 SHOWS DEF MULT CHOICE. STATE 2 SHOWS CORRECT WHOLE CHAR. STATE 3 SHOWS INCORRECT WHOLE CHAR
-    var answerProg = 0;
-    $scope.quizProgression = function(initAnswer){
-      if(answerProg === 0){
-        if(initAnswer === question.pinyin){
-          answerProg = 1;
-        } else {
-          answerProg = 3;
-        }
-      }
-      else if(answerProg === 1){
-        if(initAnswer === question.definition){
-          answerProg = 2;
-        } else {
-          answerProg = 3;
-        }
-      }
-    }
 
+    //THESE FUNCTIONS CHECK THE CURRENT STATE OF THE QUESTION PROCESS AND RETURN TRUE OR FALSE
     $scope.checkPinState = function(){
       return answerProg === 0;
     }
@@ -72,6 +90,10 @@ angular.module("hanziLearner")
 
     $scope.checkIncorrectState = function(){
       return answerProg === 3;
+    }
+
+    $scope.checkFinishedState = function(){
+      return answerProg === 4;
     }
 
 

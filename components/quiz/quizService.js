@@ -115,19 +115,23 @@ angular.module("hanziLearner")
     }
 
     this.genRandPinyin = function(initChar){
-      var soundArr = [initChar.pinyin];
+      var soundArr = [];
+      var correctAnswer = initChar.pinyin[0];
       var rand = 0;
       while(soundArr.length < 4){
         rand = Math.ceil(Math.random() * this.characters.length);
         if(soundArr.indexOf(this.characters[rand].pinyin) === -1){
-          soundArr.push(this.characters[rand].pinyin);
+          soundArr.push(this.characters[rand].pinyin[0]);
         }
       }
+      rand = Math.floor(Math.random() * 4);
+      soundArr.splice(rand, 0, correctAnswer)
       return soundArr;
     }
 
     this.genRandDef = function(initChar){
-      var defArr = [initChar.definition];
+      var defArr = [];
+      var correctAnswer = initChar.definition;
       var rand = 0;
       while(defArr.length < 4){
         rand = Math.ceil(Math.random() * this.characters.length);
@@ -135,6 +139,8 @@ angular.module("hanziLearner")
           defArr.push(this.characters[rand].definition);
         }
       }
+      rand = Math.floor(Math.random() * 4);
+      defArr.splice(rand, 0, correctAnswer)
       return defArr;
     }
 

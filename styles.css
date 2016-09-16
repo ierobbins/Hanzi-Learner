@@ -14,3 +14,9 @@
   margin-left: 100px;
   margin-top: 20px;
 }
+.quiz-multiple-choice{
+  font-size: 36px;
+}
+#quiz-button{
+  margin: 10px;
+}

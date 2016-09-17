@@ -1,13 +1,25 @@
 
 <div class="dictionary-wrapper">
-  <button type="button" class="btn btn-primary" ng-click="displaySearch()">SEARCH</button>
-  <input type="text" placeholder="Search By Pinyin">
-  <input type="text" placeholder="Search By Definition">
-  <div><button type="button" class="btn btn-warning" ng-click="toggleRadDisplay()">Search By Radicals</button></div>
-  <div class="radicals" ng-show="radDisplay">
-    <div><button type="button" class="btn btn-success" ng-repeat="radical in radicals">{{radical}}</button></div>
-  </div>
-  <div class="dictionary">
 
+  <div class="search-filter-button">
+    <button type="button" class="btn btn-primary" ng-click="displaySearch(pin, def, selectedRadical)">SEARCH</button>
+    <input type="text" placeholder="Search By Pinyin" ng-model="pin">
+    <input type="text" placeholder="Search By Definition" ng-model="def">
   </div>
+
+  <div class="toggle-rad-wrapper">
+    <button type="button" class="btn btn-warning" ng-click="toggleRadDisplay()">Search By Radicals</button>
+    <button type="button" ng-click="removeRadical()"><h1>{{selectedRadical}}</h1></button>
+  </div>
+
+  <div class="radicals" ng-show="radDisplay">
+    <div><button type="button" class="btn btn-success" ng-repeat="radical in radicals" ng-click="selectRadical(radical)">{{radical}}</button></div>
+  </div>
+
+  <div class="dictionary">
+    <ul class="">
+      <li ng-repeat="result in searchReturn"><h2>{{result.character}}</h2> <h3>{{result.pinyin}}</h3> <h4>{{result.definition}}</h4> {{result.frequencyRank}}</li>
+    </ul>
+  </div>
+
 </div>

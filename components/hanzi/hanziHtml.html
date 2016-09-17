@@ -1,1 +1,13 @@
-{{characters}}
+
+<div class="dictionary-wrapper">
+  <button type="button" class="btn btn-primary" ng-click="displaySearch()">SEARCH</button>
+  <input type="text" placeholder="Search By Pinyin">
+  <input type="text" placeholder="Search By Definition">
+  <div><button type="button" class="btn btn-warning" ng-click="toggleRadDisplay()">Search By Radicals</button></div>
+  <div class="radicals" ng-show="radDisplay">
+    <div><button type="button" class="btn btn-success" ng-repeat="radical in radicals">{{radical}}</button></div>
+  </div>
+  <div class="dictionary">
+
+  </div>
+</div>

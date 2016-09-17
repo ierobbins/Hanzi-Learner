@@ -20,6 +20,21 @@ body{
 .new-quiz-box{
 
 }
+.login-box h1{
+  margin-left: 20px;
+}
+.login-box{
+  display: inline-block;
+}
+#user-pass-input{
+  border-radius: 5px;
+  width: 200px;
+  display: block;
+  margin: 20px 20px;
+}
+.log-in-buttons{
+  margin-left: 40px;
+}
 .quiz-char-block{
   background-color: white;
   border-radius: 5px;

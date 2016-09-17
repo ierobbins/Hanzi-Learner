@@ -1,11 +1,32 @@
-.left-menu-wrapper{
-  border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
-  min-width: 250px;
+body{
+  background-image: url("./components/img/hanziwallpaper.jpg");
+}
+.main-page-wrapper{
   height: 100%;
+}
+.left-menu-wrapper{
+  height: 100vh;
+  text-align: center;
+  background-color: black;
+
 }
 .menu-item{
   margin-top: 150px;
+}
+.menu-item h1{
+  color: white;
+  font-family: ;
+}
+.new-quiz-box{
+
+}
+.quiz-char-block{
+  background-color: white;
+  border-radius: 5px;
+  display: inline-block;
+}
+.quiz-char-block h1{
+  font-size: 180px;
 }
 .quiz-box{
   width: 1000px;
@@ -20,12 +41,21 @@
 #quiz-button{
   margin: 10px;
 }
-.dictionary-wrapper{
-  
+.dictionary-wrapper {
+  height: 84vh;
+}
+.dictionary{
+  background-color: white;
+  border-radius: 5px;
+  height: 100%;
+  overflow: scroll;
 }
 .toggle-rad-wrapper{
   margin: 20px;
 }
 .search-filter-button{
   margin: 0px 20px;
+}
+.radicals{
+  position: absolute;
 }

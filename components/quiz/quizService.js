@@ -14,17 +14,17 @@ angular.module("hanziLearner")
       return currQuiz;
     }
 
-
     //SAVES QUIZ RESULTS AFTER EVERY ANSWER DURING THE QUIZ. UPDATES INSTANTLY
-    this.saveQuizResults = function(initUser, char, correctAnswer){
+    this.saveQuizResults = function(char, correctAnswer){
+      var currUser = profileSrv.getCurrentUser();
       var correctAns = 0;
       if(correctAnswer){
         correctAns = 1;
       }
 
       //CHECKS IF CURRENT CHARACTER IS ALREADY MASTERED AND UPDATES STATS
-      if(initUser.mastered.length > 0){
-        initUser.mastered.forEach(function(item){
+      if(currUser.mastered.length > 0){
+        currUser.mastered.forEach(function(item){
           if(item.character === char.character){
             item.seen++;
             item.correct += correctAns;
@@ -34,29 +34,30 @@ angular.module("hanziLearner")
       }
 
       //CHECKS IF CURRENT CHARACTER HAS ALREADY BEEN SEEN AND UPDATES STATS
-      else if(initUser.learning.length > 0){
-        initUser.learning.forEach(function(item, index){
-          if(item.character === char.character){
-            item.seen++;
-            item.correct += correctAns;
-            item.time = new Date().toISOString().substring(0, 10);
-            if(item.correct >= 5){                                  //Character is moved into the users
-              initUser.mastered.push(item);                         //mastered array after 5 correct answers.
-              initUser.learning.splice(index, 1);
-            }
+      var inLearning = true;
+      currUser.learning.forEach(function(item, index){
+        if(item.character === char.character){
+          inLearning = false;
+          item.seen++;
+          item.correct += correctAns;
+          item.time = new Date().toISOString().substring(0, 10);
+          if(item.correct >= 10){                                  //Character is moved into the users
+            currUser.mastered.push(item);                         //mastered array after 10 correct answers.
+            currUser.learning.splice(index, 1);
           }
-        });
-      }
+        } 
+      });
 
       //IF CHARACTER IS NOT IN LEARNING OR MASTERED, THEN IT IS PUSHED INTO MASTERED
-      else {
-        initUser.learning.push({
+      if(inLearning){
+        currUser.learning.push({
           character: char.character,
           seen: 1,
           correct: correctAns,
           time: new Date().toISOString().substring(0, 10)
         });
       }
+      console.log(profileSrv.getCurrentUser().learning)
     }
 
     //CREATES NEW QUIZ BASED ON USER INFORMATION AND CHOSEN LEVEL

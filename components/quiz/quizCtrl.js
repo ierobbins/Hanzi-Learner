@@ -1,5 +1,5 @@
 angular.module("hanziLearner")
-  .controller("quizCtrl", function($scope, quizSrv, profileSrv){
+  .controller("quizCtrl", function($scope, quizSrv, profileSrv, hanziSrv){
 
     $scope.test = "QUIZ";
 
@@ -9,6 +9,13 @@ angular.module("hanziLearner")
 
     $scope.toggleQuiz = function(){
       this.quizToggle = !this.quizToggle;
+    }
+
+    $scope.playSound = function(initChar){
+      hanziSrv.getCharSound(initChar)
+        .then(function(sound){
+          sound.play();
+        });
     }
 
     //MAKES NEW QUIZ :P
@@ -42,13 +49,9 @@ angular.module("hanziLearner")
       }
     }
 
-
-
     //LOOPS THROUGH CHARS IN TEMPQUIZ. DROPS TEMP-QUIZ ELEMENTS WITH MORE THAN TWO CORRECT.
     $scope.passNewChar = function(){
-      console.log("top: ", $scope.qIndex);
-      console.log("quiz: ", $scope.tempQuiz);
-      console.log(answerProg);
+
       //TRIMS OUT TEMP-QUIZ ELEMENTS THAT HAVE ALREADY BEEN CHOSEN CORRECTLY TWO TIMES
       if($scope.tempQuiz.length > 0){
 
@@ -59,18 +62,19 @@ angular.module("hanziLearner")
           } else {
             $scope.tempQuiz[$scope.qIndex].correct = 1;
           }
+          quizSrv.saveQuizResults($scope.question, true);
         }
         if(answerProg === 3){
           if(!$scope.tempQuiz[$scope.qIndex].hasOwnProperty("correct")){
             $scope.tempQuiz[$scope.qIndex].correct = 0;
           }
+          quizSrv.saveQuizResults($scope.question, false);
         }
         $scope.tempQuiz = quizSrv.quizTracker($scope.tempQuiz);
         if($scope.tempQuiz.length === 0){
           answerProg = 4;
         }
         else{
-
           if($scope.qIndex >= $scope.tempQuiz.length - 1){
             $scope.qIndex = 0;
           } else {
@@ -81,12 +85,10 @@ angular.module("hanziLearner")
           $scope.randDef = quizSrv.genRandDef($scope.question);
 
           answerProg = 0;
-          console.log($scope.question);
-          console.log("bottom: ", $scope.qIndex);
         }
       }
+      $scope.quizLength = $scope.tempQuiz.length;
     }
-
 
     //THESE FUNCTIONS CHECK THE CURRENT STATE OF THE QUESTION PROCESS AND RETURN TRUE OR FALSE
     $scope.checkPinState = function(){
@@ -108,7 +110,4 @@ angular.module("hanziLearner")
     $scope.checkFinishedState = function(){
       return answerProg === 4;
     }
-
-
-
   });

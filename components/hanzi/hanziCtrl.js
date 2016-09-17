@@ -1,6 +1,5 @@
 angular.module("hanziLearner")
   .controller("hanziCtrl", function($scope, mainSrv, hanziSrv){
-    $scope.test = "HANZI";
 
     $scope.characters = mainSrv.getCharacters();
 
@@ -30,25 +29,22 @@ angular.module("hanziLearner")
       $scope.characters.forEach(function(item, index){
         flag = true;
         if(initPin){
-          console.log("initPin works");
-          if(!containsString(initPin, item.pinyin)){
+          if(!containsString(initPin, item.pinyin[0])){
             flag = false;
           }
         }
         if(initDef){
-          console.log("initDef works");
           if(!containsString(initDef, item.definition)){
             flag = false;
           }
         }
         if(initRad){
-          console.log("initRad works");
           if(!containsRadical(item.radical, item.character)){
             flag = false;
           }
         }
         if(flag){
-          // item.pinyin = item.pinyin[0];
+          item.pinyin = item.pinyin[0];
           $scope.searchReturn.push(item);
         }
       });

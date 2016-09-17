@@ -1,5 +1,7 @@
 angular.module("hanziLearner")
-  .service("hanziSrv", function(mainSrv){
+  .service("hanziSrv", function($http, mainSrv){
+
+    var baseUrl = "http://api.voicerss.org/?key=695906d52c8d4c228667de0213150caa&hl=zh-cn&src="
 
     this.characters = mainSrv.getCharacters();
 
@@ -11,6 +13,16 @@ angular.module("hanziLearner")
         }
       }
       return rads;
+    }
+
+    this.getCharSound = function(initChar){
+      console.log(baseUrl + initChar);
+      var promise = $http.get(baseUrl + initChar)
+        .then(function(response){
+          var charSound = new Audio(response.data);
+          return charSound;
+        });
+      return promise;
     }
 
 

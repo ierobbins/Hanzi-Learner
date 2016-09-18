@@ -17,9 +17,15 @@
   </div>
 
   <div class="dictionary">
-    <ul class="">
-      <li ng-repeat="result in searchReturn"><h2>{{result.character}}</h2> <h3>{{result.pinyin}}</h3> <h4>{{result.definition}}</h4> {{result.frequencyRank}}</br></li>
-    </ul>
+    <div class="dict-block-wrapper">
+      <div ng-repeat="result in searchReturn" class="dict-blocks">
+        <h1>{{result.character}}</h1>
+        <h3>{{result.pinyin}}</h3>
+        <h4><strong>Definition:</strong> {{result.definition}}</h4>
+        <p><strong>Frequency Rank:</strong> {{result.frequencyRank}}</p>
+        </br>
+      </div>
+    </div>
   </div>
 
 </div>

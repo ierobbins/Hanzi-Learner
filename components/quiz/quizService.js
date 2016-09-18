@@ -45,7 +45,7 @@ angular.module("hanziLearner")
             currUser.mastered.push(item);                         //mastered array after 10 correct answers.
             currUser.learning.splice(index, 1);
           }
-        } 
+        }
       });
 
       //IF CHARACTER IS NOT IN LEARNING OR MASTERED, THEN IT IS PUSHED INTO MASTERED

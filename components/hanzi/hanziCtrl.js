@@ -44,8 +44,12 @@ angular.module("hanziLearner")
           }
         }
         if(flag){
-          item.pinyin = item.pinyin[0];
-          $scope.searchReturn.push(item);
+          var newItem = {};
+          for(prop in item){
+            newItem[prop] = item[prop];
+          }
+          newItem.pinyin = item.pinyin[0];
+          $scope.searchReturn.push(newItem);
         }
       });
 

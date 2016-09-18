@@ -8,7 +8,6 @@ body{
   height: 100vh;
   text-align: center;
   background-color: black;
-
 }
 .menu-item{
   margin-top: 150px;
@@ -25,6 +24,10 @@ body{
 }
 .login-box{
   display: inline-block;
+}
+.new-quiz-wrapper{
+  margin-top: 10%;
+  text-align: center;
 }
 #user-pass-input{
   border-radius: 5px;
@@ -46,8 +49,7 @@ body{
 .quiz-box{
   width: 1000px;
   height: 700px;
-  border: 1px solid black;
-  margin-left: 100px;
+  margin-left: 50px;
   margin-top: 20px;
 }
 .quiz-multiple-choice{
@@ -73,4 +75,43 @@ body{
 }
 .radicals{
   position: absolute;
+}
+.dict-blocks{
+  display: inline-block;
+  margin: 20px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 15px;
+}
+.quote-div{
+  font-family:fantasy;
+}
+.profile-name-wrapper{
+  margin-top: 50px;
+  text-align: center;
+  background-color: black;
+  border-radius: 7px;
+  color: white;
+}
+.profile-image-wrapper{
+  text-align: center;
+}
+.learning-mastered-list{
+  margin: 20px 0px;
+  height: 47vh;
+  background-color: white;
+  border-radius: 5px;
+  overflow: scroll;
+}
+.learning-mastered-display{
+  text-align: center;
+  margin-top: 10%;
+}
+.chars-container{
+  border: 1px solid lightgrey;
+  border-radius: 7px;
+  margin: 5px;
+  display: inline-block;
+  padding: 7px
+  text-align: center;
 }

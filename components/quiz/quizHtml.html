@@ -1,37 +1,52 @@
-<h1>{{test}}</h1>
 
 
-<div class="new-quiz-wrapper container-fluid" ng-show="quizToggle">
+<div class="row">
 
-  <div ng-click="toggleQuiz()">
-    <button id="quiz-button" class="btn btn-success" ng-click="makeNewQuiz(levelValue)">New Quiz</button>
+
+
+  <div class="col-md-1"></div>
+  <div class="col-md-9">
+
+
+
+    <div class="new-quiz-wrapper container-fluid" ng-show="quizToggle">
+
+      <h1 style="font-size:60px;">Quiz 小考</h1>
+      <div ng-click="toggleQuiz()">
+        <button id="quiz-button" class="btn btn-success" ng-click="makeNewQuiz(levelValue)">New Quiz</button>
+      </div>
+
+      <select class="level-selector" id="quiz-button" ng-model="levelValue">
+        <option ng-repeat="level in quizLevel">{{level.level}}</option>
+      </select>
+      <button id="quiz-button" class="btn btn-danger" ng-click="toggleQuiz()">Review</button>
+
+    </div>
+
+    <div class="quiz-box" ng-hide="quizToggle">
+
+      <div>
+        <quiz-directive
+            question="question"
+            rand-pin="randPin"
+            rand-def="randDef"
+            check-pin-state="checkPinState()"
+            check-def-state="checkDefState()"
+            check-correct-state="checkCorrectState()"
+            check-incorrect-state="checkIncorrectState()"
+            check-answer="checkAnswer(initAnswer)"
+            q-index="qIndex"
+            quiz-length:"quizLength"
+            check-finished-state="checkFinishedState()"
+            pass-new-char="passNewChar()"
+            play-sound="playSound(initChar)"
+        ></quiz-directive>
+      </div>
+      <!-- {{newQuiz}} -->
+    </div>
   </div>
-
-
-  <select class="level-selector" id="quiz-button" ng-model="levelValue">
-    <option ng-repeat="level in quizLevel">{{level.level}}</option>
-  </select>
-  <button id="quiz-button" class="btn btn-danger" ng-click="toggleQuiz()">Review</button>
-</div>
-
-<div class="quiz-box" ng-hide="quizToggle">
-  <button type="button" name="button" class="btn btn-warning" ng-click="toggleQuiz()">TEMPORARY</button>
-  <div>
-    <quiz-directive
-        question="question"
-        rand-pin="randPin"
-        rand-def="randDef"
-        check-pin-state="checkPinState()"
-        check-def-state="checkDefState()"
-        check-correct-state="checkCorrectState()"
-        check-incorrect-state="checkIncorrectState()"
-        check-answer="checkAnswer(initAnswer)"
-        q-index="qIndex"
-        quiz-length:"quizLength"
-        check-finished-state="checkFinishedState()"
-        pass-new-char="passNewChar()"
-        play-sound="playSound(initChar)"
-    ></quiz-directive>
+  <div class="col-md-2">
+    <h1 style="font-size: 54px;">Hanzi Learner</h1>
+    <h1 style="font-size: 148px;"><em>汉子学生</em></h1>
   </div>
-  <!-- {{newQuiz}} -->
 </div>

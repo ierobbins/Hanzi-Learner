@@ -1,4 +1,7 @@
 angular.module("hanziLearner")
-  .controller("profileCtrl", function($scope){
-    $scope.test = "PROFILE";
+  .controller("profileCtrl", function($scope, profileSrv){
+
+    $scope.currentUser = profileSrv.getCurrentUser();
+
+
   });

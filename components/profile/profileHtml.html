@@ -1,1 +1,42 @@
-{{test}}
+<div class="row">
+  <div class="col-md-4">
+    <div class="profile-name-wrapper">
+      <h1>{{currentUser.userName}}</h1>
+    </div>
+    <div class="profile-image-wrapper">
+      <img src="./components/img/hqdefault.jpg" alt="fat-guy" />
+    </div>
+  </div>
+  <div class="col-md-2 learning-mastered-display">
+    <div>
+      <h2><em>LEARNING</em></h2>
+      <h1>{{currentUser.learning.length}}</h1>
+      <button type="button" class="btn btn-danger" ng-click="reviewChars()">REVIEW</button>
+    </div>
+    <div style="height: 250px;"></div>
+    <div>
+      <h2><em>MASTERED</em></h2>
+      <h1>{{currentUser.mastered.length}}</h1>
+      <button type="button" class="btn btn-danger" ng-click="reviewChars()">REVIEW</button>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="learning-mastered-list">
+      <div class="chars-container" ng-repeat="char in currentUser.learning">
+        <h2>{{char.character}}</h2>
+        <p>Seen: {{char.seen}}</p>
+        <p>Correct: {{char.correct}}</p>
+        <p>Last Studied: {{char.time}}</p>
+      </div>
+    </div>
+    <div class="learning-mastered-list">
+      <div class="chars-container" ng-repeat="char in currentUser.mastered">
+        <h2>{{char.character}}</h2>
+        <p>Seen: {{char.seen}}</p>
+        <p>Correct: {{char.correct}}</p>
+        <p>Last Studied: {{char.time}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>

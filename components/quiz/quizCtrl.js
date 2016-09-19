@@ -13,8 +13,6 @@ angular.module("hanziLearner")
     }
     // * * * * * FOR TOGGLING THE QUIZ VIEW * * * * * //
 
-    console.log($stateParams.revQuiz);
-
     if($stateParams.revQuiz){
       $scope.toggleQuiz();
       $scope.newQuiz = $stateParams.revQuiz;
@@ -127,4 +125,6 @@ angular.module("hanziLearner")
     $scope.checkFinishedState = function(){
       return answerProg === 4;
     }
+
+    $scope.currentUser = profileSrv.getCurrentUser();
   });

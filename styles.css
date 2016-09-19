@@ -66,13 +66,16 @@ body{
 #quiz-button{
   margin: 10px;
 }
+.jia-you{
+  font-size: 78px;
+  color: red;
+}
 /*END QUIZ HTML STUFF*/
 
 
 
 /*PROFILE HTML STUFF*/
 .search-stuff-profile{
-  display: inline-block;
   min-height: 100px;
   overflow: hidden;
   margin-top: 50px;
@@ -80,12 +83,13 @@ body{
 }
 .search-filter-button{
   margin: 20px;
+  text-align: right;
 }
 .toggle-rad-wrapper{
   margin: 20px;
 }
 .dictionary-wrapper {
-  height: 82vh;
+  height: 79vh;
 }
 .dictionary{
   background-color: transparent;
@@ -129,6 +133,11 @@ body{
 }
 .profile-image-wrapper{
   text-align: center;
+  border-radius: 50%;
+  border: 1px #e4e4e4 solid;
+  padding: 20px;
+  box-shadow: 0 0 6px #ccc;
+  background-color: #fff;
 }
 .learning-mastered-list{
   margin: 20px 0px;

@@ -1,18 +1,21 @@
 
 <div class="dictionary-wrapper">
 
-  <div class="search-stuff-profile">
+  <div class="search-stuff-profile row">
 
-    <div class="search-filter-button">
+    <div class="search-filter-button col-md-5">
       <button type="button" class="btn btn-primary" ng-click="displaySearch(pin, def, selectedRadical)">SEARCH</button>
       <input type="text" placeholder="Search By Pinyin" ng-model="pin" ng-keypress="messagePress()">
       <input type="text" placeholder="Search By Definition" ng-model="def">
       <button type="button" ng-click="removeRadical()"><h1>{{selectedRadical}}</h1></button>
+      <div class="toggle-rad-wrapper">
+        <button type="button" class="btn btn-warning" ng-click="toggleRadDisplay()">Search By Radicals</button>
+      </div>
     </div>
 
-    <div class="toggle-rad-wrapper">
-      <button type="button" class="btn btn-warning" ng-click="toggleRadDisplay()">Search By Radicals</button>
-    </div>
+
+      <h2><em>Search for a character by sound, definition, or radical</em></h2>
+
 
   </div>
 

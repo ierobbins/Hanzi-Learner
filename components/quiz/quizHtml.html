@@ -17,9 +17,19 @@
       </div>
 
       <select class="level-selector" id="quiz-button" ng-model="levelValue" placeholder="Select Level">
+        <option value="" selected disabled>Select Level</option>
         <option ng-repeat="level in quizLevel">{{level.level}}</option>
       </select>
-      <button id="quiz-button" class="btn btn-danger" ng-click="toggleQuiz()">Review</button>
+
+      <h3>
+        <strong>New Quiz</strong> will randomly generate a list of ten new characters,
+        depending on chosen difficulty level, and will only present characters that <em>{{currentUser.userName}}</em>
+        hasn't seen yet.
+      </h3>
+      <h1>The set will repeat until all characters have been answered correctly at least <strong>two times</strong></h1>
+      <h2>You can do it!!</h2>
+      <h2>Practice makes perfect (孰能生巧)</h2>
+      <h1 class="jia-you">加油</h1>
 
     </div>
 

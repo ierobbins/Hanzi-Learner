@@ -16,7 +16,8 @@ angular.module("hanziLearner")
         checkAnswer: "&",
         checkFinishedState: "&",
         passNewChar: "&",
-        playSound: "&"
+        playSound: "&",
+        makeNewQuiz: "&"
       },
       link: function(scope, element, attrs){
 

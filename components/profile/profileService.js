@@ -31,11 +31,21 @@ angular.module("hanziLearner")
       }
     ];
 
-    var currentUser = users[0];
+    var currentUser = {};
 
     this.getCurrentUser = function(){
       return currentUser;
     }
+
+    this.setCurrent = function(initUser){
+      for(var i = 0; i < users.length; i++){
+        if(initUser === users[i].userName){
+          currentUser = users[i];
+        }
+      }
+    }
+
+
 
     this.characters = mainSrv.getCharacters();
 
@@ -54,15 +64,12 @@ angular.module("hanziLearner")
             revQuiz.push(this.findChar(currentUser[type][rand].character));
           }
         }
-        console.log(revQuiz);
         return revQuiz;
       }
-      console.log(currentUser[type])
       return currentUser[type];
     }
 
     this.findChar = function(initChar){
-      console.log(initChar);
       for(var i = 0; i < this.characters.length; i++){
         if(this.characters[i].character === initChar){
           return this.characters[i];
@@ -81,10 +88,11 @@ angular.module("hanziLearner")
 
     this.logIn = function(initUserID, initPass){
       var logInUser = {};
-      if(checkUserName(initUserID !== null)){
-        logInUser = checkUserName(initUserID);
-      } else if (checkEmail(initUserID !== null)) {
-        logInUser = checkEmail(initUserID);
+      if(this.checkUserName(initUserID) !== null){
+        logInUser = this.checkUserName(initUserID);
+      } else if (this.checkEmail(initUserID) !== null) {
+        logInUser = this.checkEmail(initUserID);
+
       } else {
         return null;
       }
@@ -93,14 +101,17 @@ angular.module("hanziLearner")
 
     this.checkEmail = function(initEmail){
       users.forEach(function(item){
-        return (initEmail === item.email) ? item : false;
+        return (initEmail === item.email) ? item : null;
       });
     }
 
     this.checkUserName = function(initUserName){
-      users.forEach(function(item){
-        return (initUserName === item.userName) ? item : false;
-      });
+      for(var i = 0; i < users.length; i++){
+        if(initUserName === users[i].userName){
+          return users[i];
+        }
+      }
+      return null;
     }
 
     this.newUser = function(initUserName, initEmail, initPass){
@@ -108,6 +119,7 @@ angular.module("hanziLearner")
         userName: initUserName,
         email: initEmail,
         password: initPass,
+        userImage: "",
         mastered: [],
         learning: []
       });

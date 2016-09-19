@@ -42,6 +42,7 @@
     <div class="etymology-display">
       <h3>Etymology: {{question.etymology.hint}}<h3>
     </div>
+    <button type="button" ng-click="playSound({initChar: question.character})" class="glyphicon glyphicon-volume-up"></button>
     <div class="correct-incorrect-buttons">
       <button type="button" class="btn btn-warning" ng-click="passNewChar()">Next Character</button>
     </div>
@@ -68,6 +69,7 @@
     <div class="etymology-display">
       <h3>Etymology: {{question.etymology.hint}}<h3>
     </div>
+    <button type="button" ng-click="playSound({initChar: question.character})" class="glyphicon glyphicon-volume-up"></button>
     <div class="correct-incorrect-buttons">
       <button type="button" class="btn btn-warning" ng-click="passNewChar()">Next Character</button>
     </div>
@@ -75,8 +77,22 @@
 
   <!-- display total character info, shows only when in state 4 -->
   <div class="quiz-finished" ng-show="checkFinishedState()">
-    <button type="button" class="btn btn-success">NEW QUIZ?</button>
-    <button type="button" class="btn btn-warning">REVIEW</button>
+    <div class="congrats-text">
+      <h1>Watch out China!! {{currentUser.userName}} is on your tail!</h1>
+      <h2>Don't Stop Now!! Chinese mastery is just 1994 characters away</h2>
+    </div>
+    <div>
+      <button type="button" class="btn btn-success" ng-click="makeNewQuiz({initLevel: levelValue})">NEW QUIZ?</button>
+      <select class="level-selector" id="quiz-button" ng-model="levelValue" placeholder="Select Level">
+        <option value="" selected disabled>Select Level</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select>
+    <div>
   </div>
 
 

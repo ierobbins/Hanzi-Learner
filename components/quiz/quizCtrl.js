@@ -13,16 +13,20 @@ angular.module("hanziLearner")
     }
     // * * * * * FOR TOGGLING THE QUIZ VIEW * * * * * //
 
+
+    // * * * * * IF QUIZ IS CALLED FROM THE REVIEW SECTION * * * * *//
     if($stateParams.revQuiz){
       $scope.toggleQuiz();
       $scope.newQuiz = $stateParams.revQuiz;
       $scope.tempQuiz = $scope.newQuiz;
       $scope.question = $scope.tempQuiz[0];
       $scope.qIndex = 0;
+      console.log($scope.question);
       $scope.randPin = quizSrv.genRandPinyin($scope.question);
       $scope.randDef = quizSrv.genRandDef($scope.question);
       answerProg = 0;
     }
+
 
     $scope.playSound = function(initChar){
       hanziSrv.getCharSound(initChar)
@@ -30,6 +34,7 @@ angular.module("hanziLearner")
           sound.play();
         });
     }
+
 
     $scope.makeNewQuiz = function(initLevel){
       $scope.newQuiz = quizSrv.createNewTest(initLevel);

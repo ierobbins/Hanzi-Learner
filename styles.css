@@ -78,10 +78,13 @@ body{
 
 
 /*PROFILE HTML STUFF*/
+.toggle-rad-wrapper{
+  height: 50px;
+  width: 50px;
+}
 .search-stuff-profile{
-  min-height: 100px;
   overflow: hidden;
-  margin-top: 50px;
+  margin-top: 40px;
   margin-left: 100px;
 }
 .search-filter-button{

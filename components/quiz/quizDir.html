@@ -8,7 +8,7 @@
   <div class="quiz-multiple-choice" ng-show="checkPinState()">
     <ul class="multiple-choice-questions">
       <h3>Choose Correct Pinyin</h3>
-      <div ng-repeat="pinyin in randPin" ng-click="checkAnswer({initAnswer: pinyin})">{{pinyin}}</div>
+      <div ng-repeat="pinyin in randPin" ng-click="checkAnswer({initAnswer: pinyin})" class="multi-choice">{{pinyin}}</div>
     </ul>
   </div>
 
@@ -16,7 +16,7 @@
   <div class="quiz-multiple-choice" ng-show="checkDefState()">
     <ul class="multiple-choice-questions">
       <h3>What Is The Meaning?</h3>
-      <li ng-repeat="definition in randDef" ng-click="checkAnswer({initAnswer: definition})">{{definition}}</li>
+      <div ng-repeat="definition in randDef" ng-click="checkAnswer({initAnswer: definition})" class="multi-choice">{{definition}}</div>
     </ul>
     <button type="button" ng-click="playSound({initChar: question.character})" class="glyphicon glyphicon-volume-up"></button>
   </div>
@@ -79,5 +79,5 @@
     <button type="button" class="btn btn-warning">REVIEW</button>
   </div>
 
-  
+
 </div>

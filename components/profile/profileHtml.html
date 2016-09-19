@@ -11,29 +11,29 @@
     <div>
       <h2><em>LEARNING</em></h2>
       <h1>{{currentUser.learning.length}}</h1>
-      <button type="button" class="btn btn-danger" ng-click="reviewChars()">REVIEW</button>
+      <button type="button" class="btn btn-danger" ng-click="reviewChars('learning')">REVIEW</button>
     </div>
     <div style="height: 250px;"></div>
     <div>
       <h2><em>MASTERED</em></h2>
       <h1>{{currentUser.mastered.length}}</h1>
-      <button type="button" class="btn btn-danger" ng-click="reviewChars()">REVIEW</button>
+      <button type="button" class="btn btn-danger" ng-click="reviewChars('mastered')">REVIEW</button>
     </div>
   </div>
   <div class="col-md-5">
     <div class="learning-mastered-list">
       <div class="chars-container" ng-repeat="char in currentUser.learning">
-        <h2>{{char.character}}</h2>
-        <p>Seen: {{char.seen}}</p>
-        <p>Correct: {{char.correct}}</p>
+        <h2><em>{{char.character}}</em></h2>
+        <p><strong>Seen:</strong> {{char.seen}}</p>
+        <p><strong>Correct:</strong> {{char.correct}}</p>
         <p>Last Studied: {{char.time}}</p>
       </div>
     </div>
     <div class="learning-mastered-list">
       <div class="chars-container" ng-repeat="char in currentUser.mastered">
-        <h2>{{char.character}}</h2>
-        <p>Seen: {{char.seen}}</p>
-        <p>Correct: {{char.correct}}</p>
+        <h2><em>{{char.character}}</em></h2>
+        <p><strong>Seen:</strong> {{char.seen}}</p>
+        <p><strong>Correct:</strong> {{char.correct}}</p>
         <p>Last Studied: {{char.time}}</p>
       </div>
     </div>

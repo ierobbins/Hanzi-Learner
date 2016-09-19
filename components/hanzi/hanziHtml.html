@@ -1,15 +1,19 @@
 
 <div class="dictionary-wrapper">
 
-  <div class="search-filter-button">
-    <button type="button" class="btn btn-primary" ng-click="displaySearch(pin, def, selectedRadical)">SEARCH</button>
-    <input type="text" placeholder="Search By Pinyin" ng-model="pin">
-    <input type="text" placeholder="Search By Definition" ng-model="def">
-  </div>
+  <div class="search-stuff-profile">
 
-  <div class="toggle-rad-wrapper">
-    <button type="button" class="btn btn-warning" ng-click="toggleRadDisplay()">Search By Radicals</button>
-    <button type="button" ng-click="removeRadical()"><h1>{{selectedRadical}}</h1></button>
+    <div class="search-filter-button">
+      <button type="button" class="btn btn-primary" ng-click="displaySearch(pin, def, selectedRadical)">SEARCH</button>
+      <input type="text" placeholder="Search By Pinyin" ng-model="pin" ng-keypress="messagePress()">
+      <input type="text" placeholder="Search By Definition" ng-model="def">
+      <button type="button" ng-click="removeRadical()"><h1>{{selectedRadical}}</h1></button>
+    </div>
+
+    <div class="toggle-rad-wrapper">
+      <button type="button" class="btn btn-warning" ng-click="toggleRadDisplay()">Search By Radicals</button>
+    </div>
+
   </div>
 
   <div class="radicals" ng-show="radDisplay">

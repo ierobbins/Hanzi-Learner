@@ -16,7 +16,7 @@ angular.module("hanziLearner")
     }
 
     this.getCharSound = function(initChar){
-      console.log(baseUrl + initChar);
+      console.log(initChar.charCodeAt(0));
       var promise = $http.get(baseUrl + initChar)
         .then(function(response){
           var charSound = new Audio(response.data);

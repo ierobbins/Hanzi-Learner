@@ -3,6 +3,8 @@ angular.module("hanziLearner")
 
     this.characters = mainSrv.getCharacters();
 
+    var currentUser = profileSrv.getCurrentUser();
+
     var currentQuiz = [];
 
     this.quizTracker = function(currQuiz){
@@ -16,15 +18,14 @@ angular.module("hanziLearner")
 
     //SAVES QUIZ RESULTS AFTER EVERY ANSWER DURING THE QUIZ. UPDATES INSTANTLY
     this.saveQuizResults = function(char, correctAnswer){
-      var currUser = profileSrv.getCurrentUser();
       var correctAns = 0;
       if(correctAnswer){
         correctAns = 1;
       }
 
       //CHECKS IF CURRENT CHARACTER IS ALREADY MASTERED AND UPDATES STATS
-      if(currUser.mastered.length > 0){
-        currUser.mastered.forEach(function(item){
+      if(currentUser.mastered.length > 0){
+        currentUser.mastered.forEach(function(item){
           if(item.character === char.character){
             item.seen++;
             item.correct += correctAns;
@@ -35,44 +36,40 @@ angular.module("hanziLearner")
 
       //CHECKS IF CURRENT CHARACTER HAS ALREADY BEEN SEEN AND UPDATES STATS
       var inLearning = true;
-      currUser.learning.forEach(function(item, index){
+      currentUser.learning.forEach(function(item, index){
         if(item.character === char.character){
           inLearning = false;
           item.seen++;
           item.correct += correctAns;
           item.time = new Date().toISOString().substring(0, 10);
           if(item.correct >= 10){                                  //Character is moved into the users
-            currUser.mastered.push(item);                         //mastered array after 10 correct answers.
-            currUser.learning.splice(index, 1);
+            currentUser.mastered.push(item);                         //mastered array after 10 correct answers.
+            currentUser.learning.splice(index, 1);
           }
         }
       });
 
       //IF CHARACTER IS NOT IN LEARNING OR MASTERED, THEN IT IS PUSHED INTO MASTERED
       if(inLearning){
-        currUser.learning.push({
+        currentUser.learning.push({
           character: char.character,
           seen: 1,
           correct: correctAns,
           time: new Date().toISOString().substring(0, 10)
         });
       }
-      console.log(profileSrv.getCurrentUser().learning)
     }
 
     //CREATES NEW QUIZ BASED ON USER INFORMATION AND CHOSEN LEVEL
-    this.createNewTest = function(initUser, initLevel){
-
+    this.createNewTest = function(initLevel){
       var availableChar = mainSrv.getCharacters().filter(function(item){
         if(item.hskLevel == initLevel){return item;}
       });
-
-      var valuesToFilter = initUser.mastered.concat(initUser.learning).forEach(function(item){
+      var valuesToFilter = currentUser.mastered.concat(currentUser.learning).forEach(function(item){
         if(item){
           return item.frequencyRank;
         }
       });
-
       if(valuesToFilter){
         availableChar = availableChar.filter(function(item){
           if(valuesToFilter.indexOf(item.frequencyRank) === -1){
@@ -81,7 +78,7 @@ angular.module("hanziLearner")
         });
       }
 
-      var newQuiz = [], user = initUser, rand = 0, chosenChar = {}, flag = true;
+      var newQuiz = [], user = currentUser, rand = 0, chosenChar = {}, flag = true;
 
       while(newQuiz.length < 10 && availableChar.length >= 10){
         rand = Math.ceil(Math.random() * (availableChar[availableChar.length - 1].frequencyRank - availableChar[0].frequencyRank) + availableChar[0].frequencyRank);

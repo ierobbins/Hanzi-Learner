@@ -10,14 +10,15 @@ angular.module("hanziLearner", ["ui.router"])
         controller: "homeCtrl"
       })
       .state("profile", {
-        url: "/profile/:user",
+        url: "/profile",
         templateUrl: "./components/profile/profileHtml.html",
         controller: "profileCtrl"
       })
       .state("quiz", {
-        url: "/quiz/:user",
+        url: "/quiz/",
         templateUrl: "./components/quiz/quizHtml.html",
-        controller: "quizCtrl"
+        controller: "quizCtrl",
+        params: {revQuiz: null}
       })
       .state("hanzi", {
         url: "/hanzi",

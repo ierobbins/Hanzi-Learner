@@ -16,9 +16,6 @@ body{
   color: white;
   font-family: ;
 }
-.new-quiz-box{
-
-}
 .login-box h1{
   margin-left: 20px;
 }
@@ -38,6 +35,9 @@ body{
 .log-in-buttons{
   margin-left: 40px;
 }
+
+
+/*QUIZ HTML STUFF*/
 .quiz-char-block{
   background-color: white;
   border-radius: 5px;
@@ -55,23 +55,43 @@ body{
 .quiz-multiple-choice{
   font-size: 36px;
 }
+.multi-choice{
+  width: auto;
+}
+.multi-choice:hover{
+  color: red;
+  cursor: pointer;
+  font-size: 36px;
+}
 #quiz-button{
   margin: 10px;
 }
-.dictionary-wrapper {
-  height: 84vh;
+/*END QUIZ HTML STUFF*/
+
+
+
+/*PROFILE HTML STUFF*/
+.search-stuff-profile{
+  display: inline-block;
+  min-height: 100px;
+  overflow: hidden;
+  margin-top: 50px;
+  margin-left: 100px;
 }
-.dictionary{
-  background-color: white;
-  border-radius: 5px;
-  height: 100%;
-  overflow: scroll;
+.search-filter-button{
+  margin: 20px;
 }
 .toggle-rad-wrapper{
   margin: 20px;
 }
-.search-filter-button{
-  margin: 0px 20px;
+.dictionary-wrapper {
+  height: 82vh;
+}
+.dictionary{
+  background-color: transparent;
+  border-radius: 5px;
+  height: 100%;
+  overflow: scroll;
 }
 .radicals{
   position: absolute;
@@ -79,10 +99,24 @@ body{
 .dict-blocks{
   display: inline-block;
   margin: 20px 20px;
-  border: 1px solid lightgrey;
   border-radius: 5px;
   padding: 15px;
+  background-color: darkgrey;
+  color: white;
 }
+.dict-blocks:hover{
+  display: inline-block;
+  margin: 20px 20px;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: black;
+  color: white;
+}
+/*END PROFILE HTML STUFF*/
+
+
+
+
 .quote-div{
   font-family:fantasy;
 }
@@ -110,8 +144,17 @@ body{
 .chars-container{
   border: 1px solid lightgrey;
   border-radius: 7px;
-  margin: 5px;
+  margin: 3px;
   display: inline-block;
-  padding: 7px
+  padding: 5px;
   text-align: center;
+}
+.chars-container:hover{
+  border-radius: 7px;
+  margin: 3px;
+  display: inline-block;
+  padding: 5px;
+  text-align: center;
+  background-color: darkgrey;
+  color: white;
 }

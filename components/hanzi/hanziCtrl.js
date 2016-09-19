@@ -9,6 +9,10 @@ angular.module("hanziLearner")
       $scope.radDisplay = !$scope.radDisplay;
     }
 
+    $scope.messagePress = function(){
+      
+    }
+
     $scope.searchReturn = [];
 
     $scope.selectedRadical = "";

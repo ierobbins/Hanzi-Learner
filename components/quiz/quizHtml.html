@@ -16,7 +16,7 @@
         <button id="quiz-button" class="btn btn-success" ng-click="makeNewQuiz(levelValue)">New Quiz</button>
       </div>
 
-      <select class="level-selector" id="quiz-button" ng-model="levelValue">
+      <select class="level-selector" id="quiz-button" ng-model="levelValue" placeholder="Select Level">
         <option ng-repeat="level in quizLevel">{{level.level}}</option>
       </select>
       <button id="quiz-button" class="btn btn-danger" ng-click="toggleQuiz()">Review</button>

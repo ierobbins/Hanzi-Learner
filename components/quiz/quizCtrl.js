@@ -1,14 +1,29 @@
 angular.module("hanziLearner")
-  .controller("quizCtrl", function($scope, quizSrv, profileSrv, hanziSrv){
+  .controller("quizCtrl", function($scope, $stateParams, quizSrv, profileSrv, hanziSrv){
 
     $scope.test = "QUIZ";
 
     $scope.quizLevel = [{"level": 1}, {"level": 2}, {"level": 3}, {"level": 4}, {"level": 5}, {"level": 6}];
 
+    // * * * * * FOR TOGGLING THE QUIZ VIEW * * * * * //
     $scope.quizToggle = true;
 
     $scope.toggleQuiz = function(){
       this.quizToggle = !this.quizToggle;
+    }
+    // * * * * * FOR TOGGLING THE QUIZ VIEW * * * * * //
+
+    console.log($stateParams.revQuiz);
+
+    if($stateParams.revQuiz){
+      $scope.toggleQuiz();
+      $scope.newQuiz = $stateParams.revQuiz;
+      $scope.tempQuiz = $scope.newQuiz;
+      $scope.question = $scope.tempQuiz[0];
+      $scope.qIndex = 0;
+      $scope.randPin = quizSrv.genRandPinyin($scope.question);
+      $scope.randDef = quizSrv.genRandDef($scope.question);
+      answerProg = 0;
     }
 
     $scope.playSound = function(initChar){
@@ -18,9 +33,8 @@ angular.module("hanziLearner")
         });
     }
 
-    //MAKES NEW QUIZ :P
     $scope.makeNewQuiz = function(initLevel){
-      $scope.newQuiz = quizSrv.createNewTest(profileSrv.getUsers()[0], initLevel);
+      $scope.newQuiz = quizSrv.createNewTest(initLevel);
       $scope.tempQuiz = $scope.newQuiz;
       $scope.question = $scope.tempQuiz[0];
       $scope.qIndex = 0;
@@ -28,6 +42,7 @@ angular.module("hanziLearner")
       $scope.randDef = quizSrv.genRandDef($scope.question);
       answerProg = 0;
     }
+
 
     //TRACKS THE ANSWER PROGRESSION. STATE 0 SHOWS PINYIN MULT CHOICE. STATE 1 SHOWS DEF MULT CHOICE. STATE 2 SHOWS CORRECT WHOLE CHAR. STATE 3 SHOWS INCORRECT WHOLE CHAR
     var answerProg = 0;
@@ -48,6 +63,8 @@ angular.module("hanziLearner")
         }
       }
     }
+
+
 
     //LOOPS THROUGH CHARS IN TEMPQUIZ. DROPS TEMP-QUIZ ELEMENTS WITH MORE THAN TWO CORRECT.
     $scope.passNewChar = function(){

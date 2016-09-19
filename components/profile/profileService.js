@@ -16,18 +16,19 @@ angular.module("hanziLearner")
           {"character":"了", "seen": 15, "correct":13, "time":"2016-09-12"}
         ],
         learning: [
-        {"character":"子", "seen": 17, "correct":9, "time":"2016-09-17"},
-        {"character":"人", "seen": 14, "correct":6, "time":"2016-09-17"},
-        {"character":"我", "seen": 9, "correct":7, "time":"2016-09-17"},
-        {"character":"他", "seen": 3, "correct":2, "time":"2016-09-17"},
-        {"character":"个", "seen": 14, "correct":8, "time":"2016-09-17"},
-        {"character":"来", "seen": 16, "correct":4, "time":"2016-09-17"},
-        {"character":"们", "seen": 32, "correct":2, "time":"2016-09-17"},
-        {"character":"中", "seen": 12, "correct":6, "time":"2016-09-17"},
-        {"character":"大", "seen": 14, "correct":6, "time":"2016-09-17"},
-        {"character":"玉", "seen": 10, "correct":7, "time":"2016-09-17"},
-        {"character":"至", "seen": 11, "correct":9, "time":"2016-09-17"},
-        {"character":"尤", "seen": 32, "correct":0, "time":"2016-09-17"}]
+          {"character":"子", "seen": 17, "correct":9, "time":"2016-09-17"},
+          {"character":"人", "seen": 14, "correct":6, "time":"2016-09-17"},
+          {"character":"我", "seen": 9, "correct":7, "time":"2016-09-17"},
+          {"character":"他", "seen": 3, "correct":2, "time":"2016-09-17"},
+          {"character":"个", "seen": 14, "correct":8, "time":"2016-09-17"},
+          {"character":"来", "seen": 16, "correct":4, "time":"2016-09-17"},
+          {"character":"们", "seen": 32, "correct":2, "time":"2016-09-17"},
+          {"character":"中", "seen": 12, "correct":6, "time":"2016-09-17"},
+          {"character":"大", "seen": 14, "correct":6, "time":"2016-09-17"},
+          {"character":"玉", "seen": 10, "correct":7, "time":"2016-09-17"},
+          {"character":"至", "seen": 11, "correct":9, "time":"2016-09-17"},
+          {"character":"尤", "seen": 32, "correct":0, "time":"2016-09-17"}
+        ]
       }
     ];
 

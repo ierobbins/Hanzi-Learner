@@ -7,7 +7,9 @@ angular.module("hanziLearner")
 
     var currentQuiz = [];
 
+    //* * * * * TRIMS ALL ELEMENTS FROM QUIZ THAT HAVE BEEN ANSWERED CORRECTLY TWICE * * * * * //
     this.quizTracker = function(currQuiz){
+      console.log("Service: quizTracker");
       currQuiz.forEach(function(item, index){
         if(item.correct >= 2){
           currQuiz.splice(index, 1);
@@ -18,6 +20,7 @@ angular.module("hanziLearner")
 
     //SAVES QUIZ RESULTS AFTER EVERY ANSWER DURING THE QUIZ. UPDATES INSTANTLY
     this.saveQuizResults = function(char, correctAnswer){
+      console.log("Service: saveQuizResults");
       var correctAns = 0;
       if(correctAnswer){
         correctAns = 1;
@@ -49,7 +52,7 @@ angular.module("hanziLearner")
         }
       });
 
-      //IF CHARACTER IS NOT IN LEARNING OR MASTERED, THEN IT IS PUSHED INTO MASTERED
+      //IF CHARACTER IS NOT IN LEARNING OR MASTERED, THEN IT IS PUSHED INTO LEARNING
       if(inLearning){
         currentUser.learning.push({
           character: char.character,
@@ -62,6 +65,8 @@ angular.module("hanziLearner")
 
     //CREATES NEW QUIZ BASED ON USER INFORMATION AND CHOSEN LEVEL
     this.createNewTest = function(initLevel){
+      console.log("Service: createNewQuiz");
+      currentUser = profileSrv.getCurrentUser();
       var availableChar = mainSrv.getCharacters().filter(function(item){
         if(item.hskLevel == initLevel){return item;}
       });
@@ -109,6 +114,7 @@ angular.module("hanziLearner")
 
     //RETURNS AN ARRAY WITH ONE CORRECT ANSWER AND 4 RANDOMLY PULLED PINYIN ANSWERS
     this.genRandPinyin = function(initChar){
+      console.log("Service: getRandPin");
       var soundArr = [];
       var correctAnswer = initChar.pinyin[0];
       var rand = 0;
@@ -125,6 +131,7 @@ angular.module("hanziLearner")
 
     //RETURNS AN ARRAY WITH ONE CORRECT ANSWER AND 4 RANDOMLY PULLED DEFINITION ANSWERS
     this.genRandDef = function(initChar){
+      console.log("Service: getRandDef");
       var defArr = [];
       var correctAnswer = initChar.definition;
       var rand = 0;
@@ -138,8 +145,4 @@ angular.module("hanziLearner")
       defArr.splice(rand, 0, correctAnswer)
       return defArr;
     }
-
-
-
-
   });

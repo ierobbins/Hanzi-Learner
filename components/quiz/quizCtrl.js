@@ -16,6 +16,7 @@ angular.module("hanziLearner")
 
     // * * * * * IF QUIZ IS CALLED FROM THE REVIEW SECTION * * * * *//
     if($stateParams.revQuiz){
+      console.log("Controller: startReview");
       $scope.toggleQuiz();
       $scope.newQuiz = $stateParams.revQuiz;
       $scope.tempQuiz = $scope.newQuiz;
@@ -37,6 +38,7 @@ angular.module("hanziLearner")
 
 
     $scope.makeNewQuiz = function(initLevel){
+      console.log("Controller: makeNewQuiz");
       $scope.newQuiz = quizSrv.createNewTest(initLevel);
       $scope.tempQuiz = $scope.newQuiz;
       $scope.question = $scope.tempQuiz[0];
@@ -50,7 +52,7 @@ angular.module("hanziLearner")
     //TRACKS THE ANSWER PROGRESSION. STATE 0 SHOWS PINYIN MULT CHOICE. STATE 1 SHOWS DEF MULT CHOICE. STATE 2 SHOWS CORRECT WHOLE CHAR. STATE 3 SHOWS INCORRECT WHOLE CHAR
     var answerProg = 0;
     $scope.checkAnswer = function(initAnswer){
-
+      console.log("Controller: checkAnswer");
       if(answerProg === 0){
         if(initAnswer === $scope.question.pinyin[0]){
           answerProg = 1;
@@ -71,7 +73,7 @@ angular.module("hanziLearner")
 
     //LOOPS THROUGH CHARS IN TEMPQUIZ. DROPS TEMP-QUIZ ELEMENTS WITH MORE THAN TWO CORRECT.
     $scope.passNewChar = function(){
-
+      console.log("Controller: passNewChar");
       //TRIMS OUT TEMP-QUIZ ELEMENTS THAT HAVE ALREADY BEEN CHOSEN CORRECTLY TWO TIMES
       if($scope.tempQuiz.length > 0){
 
